@@ -7,12 +7,15 @@
     <title>Client Form</title>
     <!-- bootstrap CDN -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <!-- fontawesome CDN -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.min.css">
-    <!-- jquery js cdn -->
+    <!-- popper -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    
+     <!-- jquery js cdn -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
     <!-- bootsrap CDN -->
-    
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+   
+   
     <style>
         .container{
             margin-top: 20px;
@@ -26,6 +29,16 @@
             margin-bottom: 0;
             font-size: 20px;
             text-transform: uppercase;
+        }
+        /** increase checkbox size*/
+        .form-check-input{
+            width: 20px;
+            height: 20px;
+        }
+        /** increase checkbox label size*/
+        .form-check-label{
+            font-size: 20px;
+            margin-left: 5px;
         }
         </style>
 </head>
@@ -41,12 +54,70 @@
     <div class="container">
             <form action="{{route('form.submit')}}" method="post">
                 @csrf
+                
+                <!-- select option for form type -->
+                            <div class="card">
+                                <div class="card-header">
+                                    <h3>Form Type</h3>
+                                </div>
+                                <div class="card-body">
+                                    <div class="row">
+                                        <!-- three columns for form type -->
+                                        <div class="col-md-4">
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" name="form_type[]" id="will" value="will">
+                                                <label class="form-check-label" for="will">
+                                                    Will
+                                                </label>
+                                            </div>
+                                            <div class="form-check">
+                                                <input class="form-check-input" type="checkbox" name="form_type[]" id="maritalwill" value="maritalwill">
+                                                <label class="form-check-label" for="maritalwill">
+                                                    Marital Will
+                                                </label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <!-- checkbox for health care directive -->
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="form_type[]" id="hcd" value="hcd">
+                                        <label class="form-check-label" for="hcd">
+                                            Health Care Directive
+                                        </label>
+                                    </div>
+                                    <!-- checkbox for power of attorney -->
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="form_type[]" id="poa" value="poa">
+                                        <label class="form-check-label" for="poa">
+                                            Power of Attorney
+                                        </label>
+                                    </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <!-- checkbox for pour over will -->
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="form_type[]" id="pow" value="pow">
+                                        <label class="form-check-label" for="pow">
+                                            Pour Over Will
+                                        </label>
+                                    </div>
+                                    <!-- checkbox for revokable living trust -->
+                                    <div class="form-check">
+                                        <input class="form-check-input" type="checkbox" name="form_type[]" id="rlt" value="rlt">
+                                        <label class="form-check-label" for="rlt">
+                                            Revokable Living Trust
+                                        </label>
+                                    </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                 <!-- Client and spouse details-->
                 <div class="row mt-2">
                     <div class="col-md-6">
                         <div class="card">
                             <div class="card-header">
-                                <h3>A. Client Form</h3>
+                                <h3>A. Client Information</h3>
                             </div>
                             <div class="card-body">
                             <!-- add gender radio button -->
@@ -94,6 +165,10 @@
                             <div class="form-group">
                                 <label for="email">Email:</label>
                                 <input type="text" name="email" id="email" placeholder="Enter your email" class="form-control">
+                            </div>
+                           
+                            <div class="form-group">
+                                @include('county')
                             </div>
                             </div>
                         </div>
@@ -293,7 +368,7 @@
                 <!-- Witness information end-->
                 <!-- Submit button-->
                 <div class="row mt-2">
-                    <div class="col-md-4"><button type="submit" class="btn btn-info btn-block">Submit</button></div>
+                    <div class="col-md-4"><button type="submit" class="btn btn-info btn-block" disabled>Submit</button></div>
                     <div class="col-md-4"></div>
                     <div class="col-md-4"></div>
                 </div>
@@ -302,7 +377,9 @@
                 
             </form>
     </div>
+    
     <script>
+        
         $(
             function(){
                 $('#children').on('change', function(){

@@ -15,6 +15,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 Route::post("form-submit", "FormSubmitController@formSubmit")->name("form.submit");
+Route::get("create-doc", "DocController@createDoc")->name("create.doc");
 Route::get('put', function() {
     Storage::cloud()->put('test2.txt', 'Hello World');
     return 'File was saved to Google Drive';
