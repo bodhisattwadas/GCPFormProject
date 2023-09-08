@@ -5,7 +5,7 @@
     <div class="card-body">
         <div class="row">
             <!-- three columns for form type -->
-            <div class="col-md-4">
+            <div class="col-md-3">
                 <div class="form-check">
                     <input class="form-check-input" type="checkbox" name="form_type[]" id="will" value="will">
                     <label class="form-check-label" for="will">
@@ -19,7 +19,7 @@
                     </label>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-3">
                 <!-- checkbox for health care directive -->
         <div class="form-check">
             <input class="form-check-input" type="checkbox" name="form_type[]" id="hcd" value="hcd">
@@ -35,7 +35,7 @@
             </label>
         </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-3">
                 <!-- checkbox for pour over will -->
         <div class="form-check">
             <input class="form-check-input" type="checkbox" name="form_type[]" id="pow" value="pow">
@@ -43,11 +43,29 @@
                 Pour Over Will
             </label>
         </div>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" name="form_type[]" id="powj" value="powj">
+            <label class="form-check-label" for="powj">
+                Pour Over Will Joint
+            </label>
+        </div>
+        <!-- checkbox for revokable living trust -->
+        
+            </div>
+            <div class="col-md-3">
+                <!-- checkbox for pour over will -->
+        
         <!-- checkbox for revokable living trust -->
         <div class="form-check">
             <input class="form-check-input" type="checkbox" name="form_type[]" id="rlt" value="rlt">
             <label class="form-check-label" for="rlt">
                 Revokable Living Trust
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" name="form_type[]" id="rltj" value="rltj">
+            <label class="form-check-label" for="rltj">
+                Revokable Living Trust Joint
             </label>
         </div>
             </div>
