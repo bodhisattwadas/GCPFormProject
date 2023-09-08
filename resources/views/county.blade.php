@@ -164,8 +164,8 @@
 
 
     <label for="county">County</label>
-    <select class="form-control" id="county" name="county">
-        <option value="">Select County</option>
+    <select class="form-control" id="county_name" name="county_name">
+        
         @foreach($georgiaCounties as $county)
             <option value="{{ $county }}">{{ $county }}</option>
         @endforeach
