@@ -7,7 +7,7 @@
             <!-- three columns for form type -->
             <div class="col-md-3">
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" name="form_type[]" id="will" value="will">
+                    <input class="form-check-input" type="checkbox" name="form_type[]" id="will" value="will" disabled>
                     <label class="form-check-label" for="will">
                         Will
                     </label>
