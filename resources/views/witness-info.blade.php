@@ -6,11 +6,11 @@
                             <!-- name of witness1 and witness 2-->
                             <div class="form-group">
                                 <label for="name">Witness 1</label>
-                                <input type="text" name="witness1_name" id="witness1_name" class="form-control" placeholder="Enter Name" required>
+                                <input type="text" name="witness_1" id="witness_1" class="form-control" placeholder="Enter Name" required>
                             </div>
                             <div class="form-group">
                                 <label for="name">Witness 2</label>
-                                <input type="text" name="witness2_name" id="witness2_name" class="form-control" placeholder="Enter Name" required>
+                                <input type="text" name="witness_2" id="witness_2" class="form-control" placeholder="Enter Name" required>
                                 </div>
                         </div>
                     </div>

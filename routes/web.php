@@ -1,5 +1,5 @@
 <?php
-
+use App\Http\Controllers\GoogleDocController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,16 +14,18 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/create-doc', [GoogleDocController::class, 'createDoc']);
+
 Route::post("form-submit", "FormSubmitController@formSubmit")->name("form.submit");
-Route::get("create-doc", "DocController@createDoc")->name("create.doc");
-Route::get('put', function() {
-    Storage::cloud()->put('test2.txt', 'Hello World');
-    return 'File was saved to Google Drive';
-});
+// Route::get('put', function() {
+//     Storage::cloud()->put('test3.txt', 'Hello World, this is for test purpose');
+//     return 'File was saved to Google Drive';
+// });
 
 // Route::get('put-existing', function() {
-//     $filename = 'laravel.png';
-//     $filePath = public_path($filename);
+//     $filename = 'BODHISATTWA_DAS_2023-09-08-14-51-54.docx';
+//     $dir = 'output';
+//     $filePath = public_path($dir.'/'.$filename);
 //     $fileData = File::get($filePath);
 
 //     Storage::cloud()->put($filename, $fileData);
@@ -156,15 +158,15 @@ Route::get('put-in-dir', function() {
 //     return Storage::cloud()->url($filename);
 // });
 
-// Route::get('export/{filename}', function ($filename) {
-//     $service = Storage::cloud()->getAdapter()->getService();
-//     $file = Storage::cloud()->getAdapter()->getMetadata($filename);
+Route::get('export/{filename}', function ($filename) {
+    $service = Storage::cloud()->getAdapter()->getService();
+    $file = Storage::cloud()->getAdapter()->getMetadata($filename);
 
-//     $mimeType = 'application/pdf';
-//     $export = $service->files->export($file->extraMetadata()['id'], $mimeType);
+    $mimeType = 'application/pdf';
+    $export = $service->files->export($file->extraMetadata()['id'], $mimeType);
 
-//     return response($export->getBody(), 200, [
-//         'Content-Type' => $mimeType,
-//         'Content-disposition' => 'attachment; filename='.$filename.'.pdf',
-//     ]);
-// });
+    return response($export->getBody(), 200, [
+        'Content-Type' => $mimeType,
+        'Content-disposition' => 'attachment; filename='.$filename.'.pdf',
+    ]);
+});

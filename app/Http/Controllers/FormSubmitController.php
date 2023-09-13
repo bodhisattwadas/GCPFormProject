@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use PhpOffice\PhpWord\TemplateProcessor;
+use PhpOffice\PhpWord\PhpWord;
+use PhpOffice\PhpWord\IOFactory;
+use \PDF;
 
 
 
@@ -41,7 +44,11 @@ class FormSubmitController extends Controller
         
         $templateProcessor = new TemplateProcessor($templatePath);
         //replace space by _ in client name
-        $docFileName = str_replace(' ', '_', $arr['client_name']).'_'.date('Y-m-d-H-i-s').'.docx';
+        $docFileName = str_replace(' ', '_', $arr['client_name']).'_'.date('Y-m-d-H-i-s').'.doc';
+        $pdfFileName = str_replace(' ', '_', $arr['client_name']).'_'.date('Y-m-d-H-i-s').'.pdf';
+        $docFilePath = storage_path('output'.DIRECTORY_SEPARATOR.$docFileName);
+        $pdfFilePath = storage_path('output'.DIRECTORY_SEPARATOR.$pdfFileName);
+
         $templateProcessor->setValue('client_name', strtoupper($arr['client_name']));
         $templateProcessor->setValue('county_name', strtoupper($arr['county_name']));
         $templateProcessor->setValue('co_client_name', strtoupper($arr['co_client_name']));
@@ -54,12 +61,20 @@ class FormSubmitController extends Controller
         $templateProcessor->setValue('paragraph_option', $this->_generateParagraphOptionText($arr));
        
 
-        $outputPath = public_path('output/'.$docFileName);
-        $templateProcessor->saveAs($outputPath);
+        //Gnerete DOC
+        $templateProcessor->saveAs($docFilePath);
+        //Gnerete PDF
+        $this->_convertDocToPdf($docFilePath, $pdfFilePath);
 
         
-        return $outputPath;
+        //upload file to google drive
+        // $fileData = \File::get($outputPath);
+        // \Storage::cloud()->put($arr['client_name'].'/'.$docFileName, $fileData);
+    
+        return $pdfFilePath;
     }
+   
+    
     private function _generateChildDetailsText($arr){
         $adultChildren = [];
         $minorChildren = [];
@@ -116,6 +131,19 @@ class FormSubmitController extends Controller
            
         }
         return $paragraph_option_text;
+    }
+    private function _convertDocToPdf($docFilePath, $pdfFilePath)
+    {
+        $phpWord = IOFactory::load($docFilePath);
+        $htmlWriter = IOFactory::createWriter($phpWord , 'HTML');
+        $htmlOutputPath = public_path('output.html');
+        $htmlWriter->save($htmlOutputPath);
+        $htmlContent = file_get_contents($htmlOutputPath);
+
+        // Load the HTML content into DomPDF and save it as a PDF
+        $pdf = PDF::loadHTML($htmlContent);
+        $pdf->save($pdfFilePath);
+        return $pdfFilePath;
     }
     
 }

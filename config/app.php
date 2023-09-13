@@ -192,7 +192,8 @@ return [
     */
 
     'aliases' => [
-
+        // 'Google_Client' => Illuminate\Support\Facades\Google_Client::class,
+        // 'Google_Service_Docs' => Illuminate\Support\Facades\Google_Service_Docs::class,
         'App' => Illuminate\Support\Facades\App::class,
         'Artisan' => Illuminate\Support\Facades\Artisan::class,
         'Auth' => Illuminate\Support\Facades\Auth::class,
@@ -226,6 +227,8 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+        'PDF' => Barryvdh\DomPDF\Facade\Pdf::class,
+
 
     ],
 

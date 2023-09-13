@@ -7,13 +7,13 @@
             <!-- three columns for form type -->
             <div class="col-md-3">
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" name="form_type[]" id="will" value="will" disabled>
+                    <input class="form-check-input" type="checkbox" name="form_type_will" id="will" value="will">
                     <label class="form-check-label" for="will">
                         Will
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" name="form_type[]" id="marital_will" value="marital_will">
+                    <input class="form-check-input" type="checkbox" name="form_type_marital_will" id="marital_will" value="marital_will">
                     <label class="form-check-label" for="marital_will">
                         Marital Will
                     </label>
