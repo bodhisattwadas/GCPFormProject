@@ -7,13 +7,13 @@
             <!-- three columns for form type -->
             <div class="col-md-3">
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" name="form_type_will" id="will" value="will">
+                    <input class="form-check-input" type="checkbox" name="checked_type[]" id="will" value="will" checked>
                     <label class="form-check-label" for="will">
                         Will
                     </label>
                 </div>
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" name="form_type_marital_will" id="marital_will" value="marital_will">
+                    <input class="form-check-input" type="checkbox" name="checked_type[]" id="marital_will" value="marital_will">
                     <label class="form-check-label" for="marital_will">
                         Marital Will
                     </label>
@@ -22,14 +22,14 @@
             <div class="col-md-3">
                 <!-- checkbox for health care directive -->
         <div class="form-check">
-            <input class="form-check-input" type="checkbox" name="form_type[]" id="hcd" value="hcd"  disabled>
+            <input class="form-check-input" type="checkbox" name="checked_type[]" id="hcd" value="hcd">
             <label class="form-check-label" for="hcd">
                 Health Care Directive
             </label>
         </div>
         <!-- checkbox for power of attorney -->
         <div class="form-check">
-            <input class="form-check-input" type="checkbox" name="form_type[]" id="poa" value="poa"  disabled>
+            <input class="form-check-input" type="checkbox" name="checked_type[]" id="poa" value="poa">
             <label class="form-check-label" for="poa">
                 Power of Attorney
             </label>
@@ -39,13 +39,13 @@
         <div class="col-md-3">
         <!-- checkbox for revokable living trust -->
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" name="form_type[]" id="rlt" value="rlt"  disabled>
+                <input class="form-check-input" type="checkbox" name="checked_type[]" id="rlt" value="rlt">
                 <label class="form-check-label" for="rlt">
                     Revokable Living Trust
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input" type="checkbox" name="form_type[]" id="rltj" value="rltj"  disabled>
+                <input class="form-check-input" type="checkbox" name="checked_type[]" id="rltj" value="rltj">
                 <label class="form-check-label" for="rltj">
                     Revokable Living Trust Joint
                 </label>
@@ -56,7 +56,7 @@
                 <!-- checkbox for pour over will -->
                 <!-- disable checkbox -->
                 <div class="form-check">
-                    <input class="form-check-input" type="checkbox" name="form_type[]" id="pow" value="pow" disabled>
+                    <input class="form-check-input" type="checkbox" name="checked_type[]" id="pow" value="pow">
                     <label class="form-check-label" for="pow">
                         Pour Over Will
                     </label>
@@ -64,4 +64,4 @@
             </div>   
         </div>
     </div>
-</div>
+</div> 
